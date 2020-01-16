@@ -49,46 +49,46 @@ async def JointheVC(VCchannel, TXchannel):
 		await TXchannel.send('음성채널에 먼저 들어가주세요.', tts=False)
 		
 		
-			if message.content.startswith('단가'):
-				if message.author.voice == None:
-					await client.get_channel(channel).send('음성안내는 각 매장에 입장하셔야 안내합니다.', tts=False)
-				else:
-					voice_channel = message.author.voice.channel
+	if message.content.startswith('단가'):
+		if message.author.voice == None:
+			await client.get_channel(channel).send('음성안내는 각 매장에 입장하셔야 안내합니다.', tts=False)
+		else:
+			voice_channel = message.author.voice.channel
 
-					if voice_channel.id == "":
-						file_data_voiceCH = base64.b64decode(inidata_voiceCH.content)
-						file_data_voiceCH = file_data_voiceCH.decode('utf-8')
-						inputData_voiceCH = file_data_voiceCH.split('\n')
+			if voice_channel.id == "":
+				file_data_voiceCH = base64.b64decode(inidata_voiceCH.content)
+				file_data_voiceCH = file_data_voiceCH.decode('utf-8')
+				inputData_voiceCH = file_data_voiceCH.split('\n')
 
-						for i in range(len(inputData_voiceCH)):
-							if inputData_voiceCH[i] == 'voicechannel = \r':
-								inputData_voiceCH[i] = 'voicechannel = ' + str(voice_channel.id) + '\r'
+				for i in range(len(inputData_voiceCH)):
+					if inputData_voiceCH[i] == 'voicechannel = \r':
+						inputData_voiceCH[i] = 'voicechannel = ' + str(voice_channel.id) + '\r'
 								
 
-						result_voiceCH = '\n'.join(inputData_voiceCH)
+				result_voiceCH = '\n'.join(inputData_voiceCH)
 
-						contents = int(voice_channel.id)
+				contents = int(voice_channel.id)
 						
 						
 
-					elif voice_channel.id != int(voice_channel.id):
-						file_data_voiceCH = base64.b64decode(inidata_voiceCH.content)
-						file_data_voiceCH = file_data_voiceCH.decode('utf-8')
-						inputData_voiceCH = file_data_voiceCH.split('\n')
+			elif voice_channel.id != int(voice_channel.id):
+				file_data_voiceCH = base64.b64decode(inidata_voiceCH.content)
+				file_data_voiceCH = file_data_voiceCH.decode('utf-8')
+				inputData_voiceCH = file_data_voiceCH.split('\n')
 
-						for i in range(len(inputData_voiceCH)):
-							if inputData_voiceCH[i] == 'voicechannel = ' + str(voice_channel.id) + '\r':
-								inputData_voiceCH[i] = 'voicechannel = ' + str(voice_channel.id) + '\r'
+				for i in range(len(inputData_voiceCH)):
+					if inputData_voiceCH[i] == 'voicechannel = ' + str(voice_channel.id) + '\r':
+						inputData_voiceCH[i] = 'voicechannel = ' + str(voice_channel.id) + '\r'
 								
 
-						result_voiceCH = '\n'.join(inputData_voiceCH)
-						contents = int(voice_channel.id)
+				result_voiceCH = '\n'.join(inputData_voiceCH)
+				contents = int(voice_channel.id)
 						
 						
 						
 
-					await JointheVC(voice_channel, channel)
-					await client.get_channel(channel).send('< 거래처 [' + client.get_channel(voice_channel.id).name + '] 이동완료>', tts=False)    
+			await JointheVC(voice_channel, channel)
+			await client.get_channel(channel).send('< 거래처 [' + client.get_channel(voice_channel.id).name + '] 이동완료>', tts=False)    
 
 
                         
