@@ -47,7 +47,9 @@ async def JointheVC(VCchannel, TXchannel):
 			#await PlaySound(voice_client1, './sound/hello.mp3')
 	else:
 		await TXchannel.send('음성채널에 먼저 들어가주세요.', tts=False)
-		
+
+@client.event
+async def on_message(message):		
 		
 	if message.content.startswith('단가'):
 		if message.author.voice == None:
