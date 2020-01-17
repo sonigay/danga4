@@ -30,12 +30,16 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+	global gc #정산
+	global creds	#정산
     
           
 	if message.content.startswith('!퀵비'):
 		SearchID = message.content[len('!퀵비')+1:]
-		sheet1.update_acell('A1', SearchID)
-		result = sheet1.acell('B1').value
+		gc = gspread.authorize(creds)
+		wks = gc.open('퀵비확인시트').worksheet('시트1')
+		wks.update_acell('A1', SearchID)
+		result = wks.acell('B1').value
             
 		embed = discord.Embed(
 			title = ' :motorcycle: 퀵비 가격비교 ',
