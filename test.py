@@ -7,7 +7,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 scope = ['https://spreadsheets.google.com/feeds']
-creds = ServiceAccountCredentials.from_json_keyfile_name('jungsanfile-e5ae2dbc8879.json', scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name('Quick-4d4e63a22b80.json', scope)
 client = gspread.authorize(creds)
 doc = client.open_by_url('https://docs.google.com/spreadsheets/d/1WzFr_aNi6T_ievrOaVJK3hT2tRQsjltfACC6WL2qXNI')
 
