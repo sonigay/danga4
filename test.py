@@ -11,7 +11,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('Quick-4d4e63a22b80.jso
 client = gspread.authorize(creds)
 doc = client.open_by_url('https://docs.google.com/spreadsheets/d/1WzFr_aNi6T_ievrOaVJK3hT2tRQsjltfACC6WL2qXNI')
 
-sheet1 = doc.worksheet('시트1')
+
 
 
 client = discord.Client()
@@ -43,7 +43,7 @@ async def on_message(message):
             
 		embed = discord.Embed(
 			title = ' :motorcycle: 퀵비 가격비교 ',
-			description= '```' + SearchID + ' 까지 업체별 비용은 ' + result + '입니다. 금액이 다소 차이가 있을수 있습니다. ```',
+			description= '**```css\n' + SearchID + ' 까지 업체별 비용은 ' + result + '입니다. 금액이 다소 차이가 있을수 있습니다. ```**',
 			color=0x00ff00
 			)
 		await client.send_message(message.channel, embed=embed)
