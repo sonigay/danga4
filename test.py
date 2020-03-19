@@ -37,7 +37,7 @@ async def on_message(message):
 	if message.content.startswith('!퀵비'):
 		SearchID = message.content[len('!퀵비')+1:]
 		gc = gspread.authorize(creds)
-		wks = gc.open('퀵비확인시트').worksheet('퀵비출력')
+		wks = gc.open('퀵비관리').worksheet('퀵비출력')
 		wks.update_acell('A1', SearchID)
 		result = wks.acell('B1').value
             
