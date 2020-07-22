@@ -23,7 +23,7 @@ async def on_ready():
 	print(client.user.name)
 	print(client.user.id)
 	print("----------------")
-	await client.change_presence(game=discord.Game(name='퀵비용 안내', type=1))
+	await client.change_presence(status=discord.Status.dnd, activity=discord.Game(name="퀵비용 안내", type=1), afk=False)
 
 
 
@@ -46,7 +46,7 @@ async def on_message(message):
 			description= '**```css\n' + SearchID + ' 까지 업체별 비용은 ' + result + '입니다. 금액이 다소 차이가 있을수 있습니다. ```**',
 			color=0x00ff00
 			)
-		await client.send_message(message.channel, embed=embed)
+		await message.channel.send(embed=embed)
             
 
                         
